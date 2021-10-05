@@ -1,0 +1,38 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
+     "responses": ["Hello", "Hi", "Hi there"]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye"],
+     "responses": ["See you later", "Have a nice day", "Bye! Come back again"]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help", "I'll watch that", "That's good"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+    },
+    {"tag": "about",
+     "patterns": ["Who are you?", "What are you?", "Who you are?" ],
+     "responses": ["I.m Joana, your bot assistant", "I'm Joana, an Artificial Intelligent bot"]
+    },
+    {"tag": "name",
+    "patterns": ["what is your name", "what should I call you", "whats your name?"],
+    "responses": ["You can call me Joana.", "I'm Joana!", "Just call me as Joana"]
+    },
+    {"tag": "help",
+    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please", "help me find"],
+    "responses": ["Tell me how can assist you", "Tell me your problem to assist you", "Yes Sure, How can I support you"]
+    },
+    {"tag": "movies",
+    "patterns" : ["help me find a movie", "I would like to watch a movie", "I don't know the name of this film", "help me find a film", "I would like to watch a film"],
+    "responses": ["What genre would you like to watch?", "Any genres in mind?", "What's your favourite genre to watch?"]
+    },
+    {"tag": "genres",
+    "patterns": ["action", "horror", "comedy", "romcom", "documentary", "thriller", "animation"],
+    "responses": ["Alright, let me have a look", "I'll check what movie you'd maybe like to watch"]
+    },
+    {"tag": "another",
+    "patterns": ["I watched that one", "I've seen that", "I've seen that already", "Give me another one", "I don't like that one"],
+    "responses":["Sure thing", "Give me one second", "I'll have another look", "Hold on one second please", "On my way to scour the internet again for your needs"]}
+]
+}
