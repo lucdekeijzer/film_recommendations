@@ -1,38 +1,42 @@
 {"intents": [
     {"tag": "greeting",
      "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
-     "responses": ["Hello", "Hi", "Hi there"]
+     "responses": ["Hello", "Hi", "Hi there", "Hey", "Hello human"]
     },
     {"tag": "goodbye",
-     "patterns": ["Bye", "See you later", "Goodbye"],
-     "responses": ["See you later", "Have a nice day", "Bye! Come back again"]
+     "patterns": ["Bye", "See you later", "Goodbye", "quit", "end", "done", "I'm done", "finished"],
+     "responses": ["See you later", "Have a nice day", "Bye! Come back again", "Bye!", "Later alligator"]
     },
     {"tag": "thanks",
      "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help", "I'll watch that", "That's good"],
-     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!", "I aim to please"]
     },
     {"tag": "about",
-     "patterns": ["Who are you?", "What are you?", "Who you are?" ],
-     "responses": ["I.m Joana, your bot assistant", "I'm Joana, an Artificial Intelligent bot"]
+     "patterns": ["Who are you?", "What are you?", "Who you are?", "What is this", "Are you a person", "Are you human", "Who am I talking to", "Are you AI", "Are you a bot"],
+     "responses": ["I'm Moviebot, your virtual assistant for finding movies.", "I'm Moviebot, an artificially intelligent virtual assisant for finding movies."]
     },
     {"tag": "name",
     "patterns": ["what is your name", "what should I call you", "whats your name?"],
-    "responses": ["You can call me Joana.", "I'm Joana!", "Just call me as Joana"]
+    "responses": ["You can call me Moviebot.", "I'm Moviebot!", "Just call me Moviebot"]
     },
     {"tag": "help",
-    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please", "help me find"],
-    "responses": ["Tell me how can assist you", "Tell me your problem to assist you", "Yes Sure, How can I support you"]
+    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need support", "I need help", "support me please", "help me find"],
+    "responses": ["How can I assist you?", "How may I help you?", "What can I do for you today?", "At your service. What should I do?", "Let me know what I can help you with", "Yes sure, how can I help  you"]
     },
     {"tag": "movies",
-    "patterns" : ["help me find a movie", "I would like to watch a movie", "I don't know the name of this film", "help me find a film", "I would like to watch a film"],
-    "responses": ["What genre would you like to watch?", "Any genres in mind?", "What's your favourite genre to watch?"]
+    "patterns" : ["help me find a movie", "I would like to watch a movie", "I don't know the name of this film", "help me find a film", "I would like to watch a film", "I'm looking for a movie", "Movie please", "I want a movie", "movie", "film", "I want to watch something", "watch something", "watch"],
+    "responses": ["What genre would you like to watch?", "Any genres in mind?", "What's your favourite genre to watch?", "What genre do you feel like watching?", "Tell me a genre", "What's the first genre that comes to your mind?"]
     },
     {"tag": "genres",
-    "patterns": ["action", "horror", "comedy", "romcom", "documentary", "thriller", "animation"],
-    "responses": ["Alright, let me have a look", "I'll check what movie you'd maybe like to watch"]
+    "patterns": ["action", "horror", "comedy", "romcom", "documentary", "thriller", "animation", "crime", "fantasy", "romantic", "historical", "history", "anime", "cartoon", "children's movie", "true crime", "western", "science fiction", "adventure", "sci-fi"],
+    "responses": ["Alright, let me have a look", "I'll check what movie you'd maybe like to watch", "I'm having a look, I'll get back to you in a second", "Looking for a movie for you", "Fetching a movie for you..", "Finding the best movie for you.."]
     },
     {"tag": "another",
-    "patterns": ["I watched that one", "I've seen that", "I've seen that already", "Give me another one", "I don't like that one"],
-    "responses":["Sure thing", "Give me one second", "I'll have another look", "Hold on one second please", "On my way to scour the internet again for your needs"]}
+    "patterns": ["I watched that one", "I've seen that", "I've seen that already", "Give me another one", "I don't like that one", "I don't like it", "not what I want", "not in the mood for this", "I've seen it", "Give me something different", "I want something different", "Try again", "I want a different movie", "One more movie", "Can I see more movies"],
+    "responses":["Sure thing", "Give me one second", "I'll have another look", "Hold on one second please", "On my way to scour the internet again for your needs"]
+    },
+    {"tag": "instructions",
+    "patterns": ["What can I do here?", "What can I do", "What can you do", "What is this", "How do I use this", "How to", "What are your features", "How can you help me", "What can you do for me"],
+    "responses": ["I'm here to find movies for you.", "You can ask me to find a movie for you.", "If you ask me for a movie I will fetch one for you.", "I can help you find movies. Just ask me if you want to find a movie.", "I find movies. What genre of movies do you like?"]}
 ]
 }
