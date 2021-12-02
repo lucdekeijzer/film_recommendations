@@ -1,0 +1,11 @@
+colorama
+scikit_learn
+Flask
+beautifulsoup4
+bs4
+googletrans==4.0.0rc1
+html5lib
+pandas
+numpy
+requests
+tensorflow
