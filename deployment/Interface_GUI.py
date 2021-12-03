@@ -1,23 +1,17 @@
-## Interface Compoment (GUI) - GSN ##
+## Interface Compoment (GUI Version) - GSN ##
 
-import json 
 from tensorflow import keras
-from sklearn.preprocessing import LabelEncoder
-from tkinter import font
-from tkinter import ttk
 from tkinter import simpledialog
 from tkinter import *
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import requests
 from random import randint
-import pandas as pd
 import numpy as np
-import colorama 
-from colorama import Fore, Style, Back
 import pickle
 import googletrans
 from googletrans import Translator
+import json
 
 # Web scraper function for getting movie recommendations from Google
 def webscraper(x):
@@ -52,75 +46,10 @@ def webscraper(x):
   movie_index_end = movie_index + 1
   return str(*(titles[movie_index:movie_index_end]))
 
-
-def chat():
-  translator = Translator()
-  colorama.init()
-
-  # load trained model
-  model = keras.models.load_model('chat_model.h5')
-
-  # load tokenizer object
-  with open('tokenizer.pickle', 'rb') as handle:
-      tokenizer = pickle.load(handle)
-
-  # load label encoder object
-  with open('label_encoder.pickle', 'rb') as enc:
-      lbl_encoder = pickle.load(enc)
-
-  # parameters
-  max_len = 20
-
-  language_detect = input("Please state the language you would like to talk in to Moviebot? \n (State the language in English please) ")
-  language_detect = language_detect.lower()
-  language_lib = googletrans.LANGCODES
-  
-  while True:
-      print(Fore.LIGHTBLUE_EX + "User: " + Style.RESET_ALL, end="")
-      inp = input()
-      language = language_lib[language_detect]
-      inp_translated = (translator.translate(inp)).text
-      if inp_translated.lower() == "quit":
-          break
-      
-
-      result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([inp_translated]),
-                                            truncating='post', maxlen=max_len))
-      tag = lbl_encoder.inverse_transform([np.argmax(result)])
-
-      data = pd.read_json('intents.json')
-
-
-      for i in data['intents']:
-        if i['tag'] == tag:
-          answer = np.random.choice(i['responses'])
-          trans_answer = translator.translate(answer, dest = language).text
-          print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL , trans_answer)
-
-      if tag == "thanks":
-          answer = np.random.choice(i['responses'])
-          trans_answer = translator.translate(answer, dest = language).text
-          #print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL , trans_answer)
-          break
-      if tag == "genres":
-        answer = np.random.choice(i['responses'])
-        trans_answer = translator.translate(answer, dest = language).text
-        #print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL , trans_answer)
-        print(translator.translate("What about: ", dest = language).text, webscraper(inp_translated))
-        genre = inp_translated
-      if tag == "another":
-        answer = np.random.choice(i['responses'])
-        trans_answer = translator.translate(answer, dest = language).text
-        #print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL , trans_answer)
-        print(webscraper(genre))
-        
-
-with open("intents.json") as file:
-    data = json.load(file)
-
-
-
+#GUI
 def chatbox():
+  with open("intents.json") as file:
+    data = json.load(file)
 
     # load trained model
     model = keras.models.load_model('chat_model.h5')
@@ -143,12 +72,15 @@ def chatbox():
 
     root = Tk()
     root.withdraw()
-    language_detect = simpledialog.askstring(title="Language", prompt="Please enter your preferred language in English.")
+    language_detect = simpledialog.askstring(title="Moviebot: Language Choice", prompt="Please enter your preferred language in English.")
     language_detect = language_detect.lower()
     language_lib = googletrans.LANGCODES
     language = language_lib[language_detect]
+    root.destroy()
     
+    # main GUI chat window
     def chatLog():
+      #setup
         text = textBox.get()
         inp = text
         result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([inp]),truncating='post', maxlen=max_len))
@@ -165,6 +97,7 @@ def chatbox():
         chat.insert('end', 'User: ', 'username')
         chat.insert('end', text + '\n', 'darker')
 
+        #loop for matching input to responses
         for i in data['intents']:
             if i['tag'] == tag:
                 chat.insert('end', 'Moviebot: ', 'botname')
