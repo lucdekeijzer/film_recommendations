@@ -1,1 +1,10 @@
+To use this program on a private cloud: 
+Download the "deployment" folder and install the requirements in requirementes.txt. 
 
+To replicate the server setup, AI.py and intents.json need to be on the server, and the rest of the files go on the client PC. The server computer needs
+to be setup as an OpenSSH server and the client needs to be set up an OpenSSH client. PCSP, which comes with PuTTY is also needed.
+
+When everything is ready, run Orchestrator_GUI on the client computer.
+
+The orchestrator and interface components are implemented as separate modules in their respective .py files, 
+but they both run on the client machine in our private cloud system.
