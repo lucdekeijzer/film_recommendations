@@ -3,3 +3,9 @@ This program recommends you a movie in a conversational manner.
 To use this program, simply download the latest version of the python notebook. All the installs and imports are in that particular notebook.
 
 When you reply to the age checker with yes, we are in no way responsible for any R-rated movies you get suggested. 
+
+To run the .py files:
+The orchestrator and interface components are implemented as separate modules in their respective .py files, 
+but they both run on the client machine in our private cloud system. The code for running our application on the 
+private cloud system is found under “deployment” in our GitHub repository. 
+To replicate the setup, AI.py and intents.json need to be on the server, and the rest of the files go on the client PC.
