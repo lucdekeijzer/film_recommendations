@@ -2,6 +2,7 @@
 
 from tensorflow import keras
 from tkinter import simpledialog
+from tkinter import messagebox
 from tkinter import *
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
@@ -68,11 +69,21 @@ def chatbox():
     # parameters
     max_len = 20
 
-    # language pop-up
-
+    # age check pop-up
     root = Tk()
     root.withdraw()
-    language_detect = simpledialog.askstring(title="Moviebot: Language Choice", prompt="Please enter your preferred language in English.")
+    agecheck = messagebox.askquestion("Age Check", "Our application may recommend R-Rated movies. Please confirm that you are at least 16 years old to proceed.", icon = 'warning')
+    if agecheck == 'yes':
+       root.destroy()
+    else:
+        messagebox.showinfo('Exit', 'You are too young to use this application.')
+        root.destroy()
+        return 0
+
+    # language pop-up
+    root = Tk()
+    root.withdraw()
+    language_detect = simpledialog.askstring(title="Language Choice", prompt="Please enter your preferred language in English.")
     language_detect = language_detect.lower()
     language_lib = googletrans.LANGCODES
     language = language_lib[language_detect]
@@ -134,3 +145,4 @@ def chatbox():
 
     Button(root, text="Send", command=chatLog, background='#8ab9c5', font='Calibri 13', foreground='#082e39').grid(row=3, columnspan=3)
     root.mainloop()
+    return 1
